@@ -1,3 +1,5 @@
+-- This project was done in Microsoft SQL Server
+
 /* 
 Cleaning Data using SQL
 */
