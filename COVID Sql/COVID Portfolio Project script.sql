@@ -13,14 +13,14 @@ ORDER BY 1,2
 
 
 -- Total Cases vs Total Deaths 
--- Shows likelihood of dying if I had contracted covid in Singapore
+-- Shows likelihood of dying if I had contracted covid in Singapore each day
 SELECT location, date, total_cases, total_deaths, (CAST(total_deaths AS FLOAT) / CAST(total_cases AS FLOAT)) * 100 AS DeathPercentage FROM PortfolioProject..CovidDeaths
 WHERE location like 'Singapore'
 ORDER BY 1,2
 
 
 -- Total Cases vs Population
--- Shows what percentage of population got Covid in Singapore
+-- Shows what percentage of population got Covid in Singapore each day
 SELECT location, date, total_cases, population, (CAST(total_cases AS FLOAT)/population) * 100 AS ContractedPercentage FROM PortfolioProject..CovidDeaths
 WHERE location like 'Singapore'
 ORDER BY 1,2
@@ -44,7 +44,7 @@ GROUP BY location
 ORDER BY TotalDeathCount DESC
 
 
--- Showing Continents with the highest death count per population
+-- Showing highest death count in each Continent
 SELECT continent, MAX(total_deaths) as TotalDeathCount FROM PortfolioProject..CovidDeaths
 WHERE continent IS NOT NULL
 GROUP BY continent
